@@ -20,10 +20,13 @@ def main():
     if google_fonts:
         for i in range(0, len(google_fonts)):
             fonts_import_string = fonts_import_string + google_fonts[i][0].replace(" ", "+")
-            if google_fonts[i][1]:
+            try:
                 fonts_import_string = fonts_import_string + ":" + google_fonts[i][1]
-            fonts_import_string = fonts_import_string + "|"
-    
+            except:
+                fonts_import_string = fonts_import_string
+            
+            if i != len(google_fonts)-1:
+                fonts_import_string = fonts_import_string + "|"
     
     fonts_final_string = "<link href=\"https://fonts.googleapis.com/css?family="+fonts_import_string+"\" rel=\"stylesheet\">"
     
